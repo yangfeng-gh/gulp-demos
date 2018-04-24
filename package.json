@@ -1,0 +1,27 @@
+{
+  "name": "gulp-first",
+  "version": "1.0.0",
+  "description": "gulp demo",
+  "main": "main.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yangfeng-gh/gulp-first.git"
+  },
+  "keywords": [
+    "gulp"
+  ],
+  "author": "yvan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yangfeng-gh/gulp-first/issues"
+  },
+  "homepage": "https://github.com/yangfeng-gh/gulp-first#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-uglify": "^3.0.0",
+    "stream-combiner2": "^1.1.1"
+  }
+}
