@@ -8,14 +8,15 @@ var remember = require('gulp-remember');
 
 var scriptsGlob = 'src/**/*.js';
 
+// 增量编译打包
 gulp.task('scripts', function () {
   return gulp.src(scriptsGlob)
-    .pipe(cached('scripts')) // 只传递更改过的文件
-    .pipe(jshint()) // 对这些更改过的文件做一些特殊的处理...
-    .pipe(header('(function () {')) // 比如 jshinting ^^^
-    .pipe(footer('})();')) // 增加一些类似模块封装的东西
-    .pipe(remember('scripts')) // 把所有的文件放回 stream
-    .pipe(concat('app.js')) // 做一些需要所有文件的操作
+    .pipe(cached('scripts')) // scripts可选，只是一个名字，以便在后续的任务中操作cached返回的流
+    .pipe(jshint()) // 对这些更改过的文件做一些特殊的处理,比如 jshinting
+    .pipe(header('(function () {')) // 增加一些类似模块封装的东西
+    .pipe(footer('})();'))
+    .pipe(remember('scripts')) // scripts可选，只是一个名字，以便在后续的任务中操作remember返回的流
+    .pipe(concat('app.js'))
     .pipe(gulp.dest('public/'));
 });
 
