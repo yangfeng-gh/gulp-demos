@@ -5,7 +5,6 @@ var concat = require('gulp-concat');
 var jshint = require('gulp-jshint');
 var cached = require('gulp-cached');
 var remember = require('gulp-remember');
-
 var scriptsGlob = 'src/**/*.js';
 
 gulp.task('scripts', function () {
