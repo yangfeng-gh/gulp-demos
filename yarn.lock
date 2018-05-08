@@ -1288,6 +1288,12 @@ gulp-sourcemaps@^2.6.4:
     strip-bom-string "1.X"
     through2 "2.X"
 
+gulp-tap@^1.0.1:
+  version "1.0.1"
+  resolved "http://registry.npm.taobao.org/gulp-tap/download/gulp-tap-1.0.1.tgz#e671124e1259b4cea219ed1ca97b7f585c334690"
+  dependencies:
+    through2 "^2.0.3"
+
 gulp-uglify@^3.0.0:
   version "3.0.0"
   resolved "http://registry.npm.taobao.org/gulp-uglify/download/gulp-uglify-3.0.0.tgz#0df0331d72a0d302e3e37e109485dddf33c6d1ca"
