@@ -9,7 +9,7 @@ gulp.task('compile', function(cb) {
 gulp.task('clean', function(cb) {
     del([
         'dist/',
-        // '!dist/deploy.json'
+        // '!dist/deploy.json' // 删除dist目录下所有文件，但保留dist/deploy.json
     ], cb);
 })
 

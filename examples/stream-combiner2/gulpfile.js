@@ -13,7 +13,6 @@ gulp.task('combine', ['clean'], function() {
 
   // 任何在上面的 stream 中发生的错误，都不会抛出，而是会被监听器捕获
   combined.on('error', console.error.bind(console));
-
   return combined;
 });
 
