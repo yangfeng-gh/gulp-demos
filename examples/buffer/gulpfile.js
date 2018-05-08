@@ -59,7 +59,7 @@ gulp.task('write-versions', function() {
     });
 
     stream
-    // 转换原始数据到 stream 中去，到一个 vinyl 对象/文件
+    // stream转换为vinyl对象/文件
     .pipe(vinylBuffer())
     //.pipe(tap(function(file) { /* 这里可以做一些对文件内容的处理操作 */ }))
     .pipe(gulp.dest('output'));
