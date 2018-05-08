@@ -7,6 +7,7 @@ var concat = require('gulp-concat');
 var size = require('gulp-size');
 var path = require('path');
 var es = require('event-stream');
+var gutil = require('gulp-util');
 
 var memory = {}; // 我们会将 assets 保存到内存中
 
@@ -20,6 +21,7 @@ gulp.task('load-lib-files', function() {
   .pipe(tap(function(file) {
     // 保存文件的内容到内存
     memory[path.basename(file.path)] = file.contents.toString();
+    gutil.log(memory.toString());
   }));
 });
 
@@ -28,9 +30,10 @@ gulp.task('load-versions', function() {
   // 从磁盘中读取文件
   return gulp.src('src/versions/version.*.js')
   // 接入 stream 来获取每个文件的数据
-  .pipe( tap(function(file) {
+  .pipe(tap(function(file) {
     // 在 assets 中保存文件的内容
     memory.versions[path.basename(file.path)] = file.contents.toString();
+    gutil.log(memory.toString());
   }));
 });
 
@@ -65,6 +68,7 @@ gulp.task('write-versions', function() {
     .pipe(gulp.dest('output'));
   });
 
+  gutil.log(streams.toString());
   return es.merge.apply(this, streams);
 });
 

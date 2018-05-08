@@ -38,4 +38,4 @@ function bundle() {
     .pipe(gulp.dest('./dist'));
 }
 
-gulp.task('default', ['js'])
+gulp.task('default', ['js']);
