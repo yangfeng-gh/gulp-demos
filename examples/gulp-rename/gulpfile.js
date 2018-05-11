@@ -33,4 +33,4 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest('dist'));
   });
   return merge(tasks);
-})
+});
