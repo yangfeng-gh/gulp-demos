@@ -7,6 +7,7 @@ var concat = require('gulp-concat');
 var size = require('gulp-size');
 var path = require('path');
 var es = require('event-stream');
+var gutil = require('gulp-util');
 
 var memory = {}; // 我们会将 assets 保存到内存中
 
@@ -20,6 +21,7 @@ gulp.task('load-lib-files', function() {
   .pipe(tap(function(file) {
     // 保存文件的内容到内存
     memory[path.basename(file.path)] = file.contents.toString();
+    gutil.log(memory.toString());
   }));
 });
 
@@ -28,9 +30,10 @@ gulp.task('load-versions', function() {
   // 从磁盘中读取文件
   return gulp.src('src/versions/version.*.js')
   // 接入 stream 来获取每个文件的数据
-  .pipe( tap(function(file) {
+  .pipe(tap(function(file) {
     // 在 assets 中保存文件的内容
     memory.versions[path.basename(file.path)] = file.contents.toString();
+    gutil.log(memory.toString());
   }));
 });
 
@@ -59,12 +62,13 @@ gulp.task('write-versions', function() {
     });
 
     stream
-    // 转换原始数据到 stream 中去，到一个 vinyl 对象/文件
+    // stream转换为vinyl对象/文件
     .pipe(vinylBuffer())
     //.pipe(tap(function(file) { /* 这里可以做一些对文件内容的处理操作 */ }))
     .pipe(gulp.dest('output'));
   });
 
+  gutil.log(streams.toString());
   return es.merge.apply(this, streams);
 });
 

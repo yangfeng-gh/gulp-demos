@@ -1,0 +1,6 @@
+{
+  "preset": "idiomatic",
+	"disallowMultipleVarDecl": true,
+	"disallowSpacesInsideObjectBrackets": true,
+	"excludeFiles": ["src/*"]
+}

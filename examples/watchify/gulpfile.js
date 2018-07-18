@@ -11,7 +11,7 @@ var assign = require('lodash.assign');
 
 // 在这里添加自定义 browserify 选项
 var customOpts = {
-  entries: ['./src/index.js'],
+  entries: ['./src/main.coffee'],
   debug: true
 };
 var opts = assign({}, watchify.args, customOpts);
@@ -38,4 +38,4 @@ function bundle() {
     .pipe(gulp.dest('./dist'));
 }
 
-gulp.task('default', ['js'])
+gulp.task('default', ['js']);
