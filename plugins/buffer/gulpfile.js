@@ -38,7 +38,7 @@ gulp.task('load-versions', function() {
 });
 
 gulp.task('write-versions', function() {
-  // 我们将不容版本的文件的名字保存到一个数组中
+  // 我们将不同版本的文件的名字保存到一个数组中
   var availableVersions = Object.keys(memory.versions);
   // 我们创建一个数组来保存所有的 stream 的 promise
   var streams = [];
