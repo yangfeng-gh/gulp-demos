@@ -7,7 +7,8 @@ var del = require('del');
 gulp.task('combine', ['clean'], function() {
   var combined = combiner.obj([
     gulp.src('src/**/*.js'),
-    uglify(), rename({suffix: '.min'}),
+    uglify(),
+    rename({suffix: '.min'}),
     gulp.dest('dist/js/')
   ]);
 

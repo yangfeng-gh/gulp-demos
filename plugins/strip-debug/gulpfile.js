@@ -1,7 +1,10 @@
+var gulp = require('gulp');
 var stripDebug = require('gulp-strip-debug');
 
-gulp.task('clean:tmp', function() {
-    gulp.src('tmp/*').pipe(gulp.dest('dist'));
+gulp.task('strip:src', function() {
+    gulp.src('src/*')
+    .pipe(stripDebug())
+    .pipe(gulp.dest('dist'));
 });
 
-gulp.task('default', ['clean:tmp']);
+gulp.task('default', ['strip:src']);
