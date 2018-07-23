@@ -25,12 +25,14 @@ gulp.task('scripts', function() {
     // 再一次写入输出
     return gulp.src(path.join(scriptsPath, folder, '/*.js'))
     .pipe(concat(folder + '.js'))
-    .pipe(gulp.dest('dist'))
+    // .pipe(gulp.dest('dist'))
     .pipe(uglify())
     // .pipe(rename(folder + '.min.js'))
-    // .pipe(rename({ extname: '.min.js' }))
-    .pipe(rename({ suffix: '.min' }))
+    .pipe(rename({ extname: '.min.js' }))
+    // .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest('dist'));
   });
   return merge(tasks);
 });
+
+gulp.task('default', ['scripts']);

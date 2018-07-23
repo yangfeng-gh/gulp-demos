@@ -11,7 +11,7 @@ var assign = require('lodash.assign');
 
 // 在这里添加自定义 browserify 选项
 var customOpts = {
-  entries: ['./src/main.coffee'],
+  entries: ['./src/index.js'],
   debug: true
 };
 var opts = assign({}, watchify.args, customOpts);
