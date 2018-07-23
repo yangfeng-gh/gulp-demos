@@ -1,5 +1,7 @@
 # 使用 watchify 加速 browserify 编译
 
+Browserify 可以让你使用类似于 node 的 require() 的方式来组织浏览器端的 Javascript 代码，通过预编译让前端 Javascript 可以直接使用 Node NPM 安装的一些库。
+
 当一个 [browserify](http://github.com/substack/node-browserify) 项目开始变大的时候，编译打包的时间也会慢慢变得长起来。虽然开始的时候可能只需花 1 秒，然后当你的项目需要建立在一些流行的大型项目的基础上时，它很有可能就变成 30 秒了。
 
 这就是为什么 [substack](http://github.com/substack) 写了 [watchify](http://github.com/substack/watchify) 的原因，一个持续监视文件的改动，并且 *只重新打包必要的文件* 的 browserify 打包工具。用这种方法，第一次打包的时候可能会还是会花 30 秒，但是后续的编译打包工作将一直保持在 100 毫秒以下 —— 这是一个极大的提升。

@@ -8,7 +8,7 @@ var uglify = require('gulp-uglify');
 var sourcemaps = require('gulp-sourcemaps');
 var gutil = require('gulp-util');
 
-gulp.task('javascript', function () {
+gulp.task('js', function () {
   // 在一个基础的 task 中创建一个 browserify 实例
   var b = browserify({
     entries: './entry.js',
@@ -25,3 +25,5 @@ gulp.task('javascript', function () {
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('./dist/js/'));
 });
+
+gulp.task('default', ['js']);

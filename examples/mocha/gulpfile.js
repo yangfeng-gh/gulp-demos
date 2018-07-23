@@ -21,5 +21,5 @@ gulp.task('mocha', function() {
 });
 
 gulp.task('watch-mocha', function() {
-  gulp.watch(['lib/**', 'test/**'], ['mocha']);
+  gulp.watch(['src/**', 'lib/**', 'test/**'], ['mocha']);
 });

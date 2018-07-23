@@ -5,7 +5,7 @@ const coffee = require('gulp-coffee');
 const path = require('path');
 const sass = require('gulp-sass');
 
-gulp.task('script', function () {
+gulp.task('coffee', function () {
   gulp.src("src/**/*.{coffee,js}")
     .pipe(tap(function (file, t) {
       gutil.log(file.contents.toString());
@@ -13,25 +13,26 @@ gulp.task('script', function () {
         return t.through(coffee, []);
       }
     }))
-    .pipe(gulp.dest('build'));
+    .pipe(gulp.dest('dist/coffee'));
 });
 
 gulp.task('scss', function () {
   gulp.src('src/**/*.scss')
     .pipe(sass())
-    .pipe(gulp.dest('build'))
+    .pipe(gulp.dest('dist/scss'))
 });
 
 // Run your own functions on a pipeline contents, as string
 gulp.task('html', function () {
   gulp.src('src/**/*.html')
     .pipe(tap(function (file) {
-      // gutil.log(file.contents.toString());
-      file.contents = Buffer.from(yourFunction(file.contents.toString()))
+      gutil.log(file.contents.toString());
+      file.contents = Buffer.from(replaceTag(file.contents.toString()))
     }))
+    .pipe(gulp.dest('dist/html'))
 });
 
-function yourFunction(input) {
+function replaceTag(input) {
   return input.replace(/h3/g, 'h2');
 }
 
