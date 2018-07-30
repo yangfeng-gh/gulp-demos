@@ -1,0 +1,4 @@
+{
+    "mocha": "examples/mocha",
+    "combiner": "examples/stream-combiner2"
+}
