@@ -1,0 +1,35 @@
+doctype html
+html(lang="en")
+  head
+    title= pageTitle
+    script(
+      type='text/javascript'
+      src='https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.js'
+      integrity='sha256-mxaM9VWtRj1wBtn50/EDUUe4m3t39ExE+xEPyrxVB8I='
+      crossorigin='anonymous'
+    )
+    link(
+      rel='stylesheet'
+      href='https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css'
+      integrity='sha256-sI/DdD47R/Sa54XZDNFjRWlS+Dv8MC5xfkqQLRh0Jes='
+      crossorigin='anonymous'
+    )
+    script(type='text/javascript').
+      if (foo) bar(1 + 5)
+  body
+    h1
+      :shoutFilter
+        Pug - node template engine
+    div
+      :katex
+        f(x) = \int_{-\infty}^\infty
+          \hat f(\xi)\,e^{2 \pi i \xi x}
+          \,d\xi
+    #container.col
+      if youAreUsingPug
+        p You are amazing
+      else
+        p Get on it!
+      p.
+        Pug is a terse and simple templating language with a
+        strong focus on performance and powerful features.

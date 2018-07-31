@@ -4,6 +4,7 @@ var gulp = require('gulp');
 var changed = require('gulp-changed');
 var jscs = require('gulp-jscs');
 var uglify = require('gulp-uglify');
+var jade = require('gulp-jade');
 
 // 我们在这里定义一些常量以供使用
 var SRC = 'src/**/*.js';
@@ -13,7 +14,7 @@ gulp.task('default', function() {
 	return gulp.src(SRC)
 		// `changed` 任务需要提前知道目标目录位置
 		// 才能找出哪些文件是被修改过的
-		// .pipe(changed(DEST))
+		.pipe(changed(DEST))
 		// 只有被更改过的文件才会通过这里
     .pipe(jscs({
       config: '.jscsrc',
@@ -26,4 +27,19 @@ gulp.task('default', function() {
 		.pipe(jscs.reporter('fail'))
 		// .pipe(uglify())
 		.pipe(gulp.dest(DEST));
+});
+
+gulp.task('jade', function(){
+	gulp.src('src/**/*.jade')
+	.pipe(changed('app', {hasChanged: changed.compareContents}))
+	.pipe(jade())
+	.pipe(gulp.dest('app'))
+});
+
+gulp.task('marked', function() {
+	gulp.src('src/content/about.md')
+	.pipe(changed('dist', {transformPath: newPath => path.join(path.dirname(newPath), path.basename(newPath, '.md'), 'index.html')}))
+	.pipe(marked())
+	.pipe(rename(newPath => path.join(path.dirname(newPath), path.basename(newPath, '.md'), 'index.html')))
+	.pipe(gulp.dest('dist'))
 });
