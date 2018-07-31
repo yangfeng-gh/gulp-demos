@@ -1,7 +1,9 @@
+@import 'variable';
+
 #content {
   article {
-    h1 { color: #333 }
+    h1 { color: $content-color }
     p { margin-bottom: 1.4em }
   }
-  aside { background-color: #EEE }
+  aside { background-color: $bg-color }
 }

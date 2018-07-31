@@ -1,1 +1,1 @@
-alert('demo02')
+console.log('test del')
