@@ -6,7 +6,7 @@ gulp.task('compile-page', function() {
   gulp.src('page.html')
       .pipe(frontMatter({ property: 'data' }))
       .pipe(swig())
-      .pipe(gulp.dest('build'));
+      .pipe(gulp.dest('dist'));
 });
 
 gulp.task('default', ['compile-page']);

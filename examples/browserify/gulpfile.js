@@ -17,7 +17,7 @@ gulp.task('js', function () {
 
   return b.bundle()
     .pipe(source('app.js'))
-    .pipe(buffer())
+    .pipe(buffer()) // Error: gulp-sourcemaps-init: Streaming not supported，需要转换为buffer类型
     .pipe(sourcemaps.init({loadMaps: true}))
         // 在这里将转换任务加入管道
         .pipe(uglify())

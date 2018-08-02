@@ -1,3 +1,1 @@
-!function showEntry() {
-    console.log('entry');
-}();
+console.log('entry');
