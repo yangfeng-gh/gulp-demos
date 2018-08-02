@@ -1,0 +1,14 @@
+{
+  "name": "gulp-first",
+  "version": "2.1.12",
+  "description": "gulp demo",
+  "main": "main.js",
+  "authors": [
+    "yvan"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "gulp"
+  ],
+  "homepage": "https://github.com/yangfeng-gh/gulp-plugins"
+}

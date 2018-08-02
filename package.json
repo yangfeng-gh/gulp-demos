@@ -1,6 +1,6 @@
 {
   "name": "gulp-first",
-  "version": "2.1.1",
+  "version": "2.1.12",
   "description": "gulp demo",
   "main": "main.js",
   "scripts": {
