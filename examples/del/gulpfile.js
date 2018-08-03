@@ -19,7 +19,12 @@ gulp.task('del:dist', function(cb) {
     del([
         'dist/**/*',
         '!dist/deploy.json' // 删除dist目录下所有文件，但保留dist/deploy.json
-    ], cb);
+    ]).then(paths => {
+        console.log('Deleted files and folders:\n', paths.join('\n'));
+        cb();
+    }).catch(err => {
+        cb(err);
+    })
 })
 
 gulp.task('del:vinyl', function() {
